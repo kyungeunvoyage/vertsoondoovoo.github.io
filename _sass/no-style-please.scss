@@ -96,3 +96,17 @@ img {
   display: block;
   margin: 0 auto;
 }
+
+/* --- custom footnote style --- */
+.footnotes {
+  font-size: 0.8rem;     // 🔹기본보다 약간 작게 (16px 기준 약 12.8px)
+  line-height: 1.4;
+}
+
+.footnotes p {
+  margin: 0.3rem 0;
+}
+
+.footnotes hr {
+  margin-top: 2rem;
+}

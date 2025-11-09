@@ -2,13 +2,14 @@
 # https://github.com/riggraz/no-style-please#customize-the-menu
 
 entries:
-  - title: Intro,
-    entries:
-      - title: this is a raw life of vertsoondoovoo in Virginia, US
-      - title: vertsoondoovoo
-        url: https://vertsoondoovoo.kyungeun.xyz
+  - title: Introduction
+    post_list:
+      limit: 1
+    # entries:
+    #   - title: vertsoondoovoo
+    #     url: https://vertsoondoovoo.kyungeun.xyz
 
-  - title: all posts
+  - title: Blog
     post_list:
       limit: 5
       show_more: true

@@ -6,16 +6,17 @@ entries:
   - title: Blog
     post_list:
       limit: 5
+      category: example
       show_more: true
       show_more_text: See archive...
       show_more_url: archive.html
 
-  - title: ready for new.. things..
-    post_list:
-      limit: 5
-      show_more: true
-      show_more_text: See archive...
-      show_more_url: archive.html
+  # - title: ready for new.. things..
+    # post_list:
+    #   limit: 5
+    #   show_more: true
+    #   show_more_text: See archive...
+    #   show_more_url: archive.html
 
   - title: Trees
     post_list:

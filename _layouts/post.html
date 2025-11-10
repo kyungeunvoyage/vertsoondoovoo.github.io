@@ -13,15 +13,68 @@ layout: default
 
   {{ content }}
 
-  <!-- <div id="cusdis_thread"
-  data-host="https://cusdis.com"
-  data-app-id="09934298-70a8-466a-8057-f8ac6a3a0a81"
-  data-page-id="{{ page.url }}"
-  data-page-url="{{ site.url }}{{ page.url }}"
-  data-page-title="{{ page.title }}"
-  data-theme="auto"
-></div>
+  <div id="cusdis_thread"
+    data-host="https://cusdis.com"
+    data-app-id="09934298-70a8-466a-8057-f8ac6a3a0a81"
+    data-page-id="{{ page.url }}"
+    data-page-url="{{ site.url }}{{ page.url }}"
+    data-page-title="{{ page.title }}"
+    data-theme="dark"  ></div>
 
-<script async defer src="https://cusdis.com/js/cusdis.es.js"></script> -->
+  <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+  </article>
 
-</article>
+<script>
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.addedNodes.length === 0) return;
+
+            const iframe = mutation.addedNodes[0];
+            if (iframe.tagName !== 'IFRAME') return;
+
+            // ---------------------------------------------
+            // 이메일 필드를 숨기고 레이아웃을 조정하는 CSS
+            // ---------------------------------------------
+            const additionalStyles = `
+                /* 1. 이메일 입력 필드가 있는 폼 그룹 전체를 숨깁니다. */
+                input[type="email"] {
+                    display: none !important;
+                }
+                .cusdis-form-item:has(input[type="email"]) {
+                    display: none !important;
+                }
+
+                /* 2. 닉네임과 댓글 칸을 세로로 깔끔하게 배치 */
+                .cusdis-form-container {
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                /* 3. 색상 커스텀 (이전 요청 기반) */
+                input[type="text"],
+                textarea {
+                    background-color: #242424 !important; /* 입력 필드 배경색 */
+                    color: #e0e0e0 !important; /* 입력 텍스트 색상 */
+                    border-color: #555555 !important;
+                }
+                .cusdis-form-item__label {
+                    color: #e0ee0e !important; /* 레이블 텍스트 색상 */
+                    background-color: #546a3a !important; /* 레이블 배경색 (이미지 기반 추정) */
+                    padding: 4px 8px;
+                    border-radius: 4px;
+                }
+            `;
+            // ---------------------------------------------
+
+            iframe.srcdoc = iframe.srcdoc.replace('</style>', additionalStyles + '</style>');
+        });
+    });
+
+    const cusdisThread = document.getElementById("cusdis_thread");
+    if (cusdisThread) {
+        observer.observe(cusdisThread, {
+            childList: true,
+            subtree: true
+        });
+    }
+</script>

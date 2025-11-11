@@ -19,13 +19,13 @@ entries:
       show_more_text: See archive...
       show_more_url: archive.html
 
-    - title: 2025 정경탱 awards
-      post_list:
-        limit: 5
-        category: 2025award
-        show_more: true
-        show_more_text: See archive...
-        show_more_url: archive.html
+  - title: 2025 정경탱 awards
+    post_list:
+      limit: 5
+      category: 2025award
+      show_more: true
+      show_more_text: See archive...
+      show_more_url: archive.html
 
   - title: 나무들
     post_list:
